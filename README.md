@@ -1,1 +1,1 @@
-# Home-Theater-Guide
+# Home Theater Guide
