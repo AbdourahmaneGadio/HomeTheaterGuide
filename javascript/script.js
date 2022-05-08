@@ -6,6 +6,7 @@ function afficherPrixMin(){
 
     selectionPrixMin.oninput=
     function(){
+        selectionPrixMin.setAttribute("value", this.value);
         valeurPrixMin.innerHTML = this.value;
     }
 }
@@ -20,30 +21,7 @@ function afficherPrixMax(){
 
     selectionPrixMax.oninput=
     function(){
+        selectionPrixMax.setAttribute("value", this.value);
         valeurPrixMax.innerHTML = this.value;
     }
 }
-
-
-// Affiche les enceintes selon les critères
-function choixEnceintes(){
-    var tableEnceintes = document.getElementById("tableEnceintes");
-
-    fetch("json/enceintes.json")
-        .then(response => response.json())
-        .then(data => {
-            var imageEnceinte = data['Jamo_S803']["0"]["Image"];
-            var prixEnceinte = data['Jamo_S803']["0"]["Prix"];
-            var couleurEnceinte = data['Jamo_S803']["0"]["Couleur"];
-            var typeEnceinte = data['Jamo_S803']["0"]["Type"];
-
-            tableEnceintes.innerHTML = 
-            "<tr>"
-            + "<td><img src=" + imageEnceinte + " width=400></td>"
-            + "<td>" + prixEnceinte + "</td>"
-            + "<td>"+ couleurEnceinte +"</td>"
-            + "<td>" + typeEnceinte + "</td>"
-            +"</tr>";
-        })
-}
-

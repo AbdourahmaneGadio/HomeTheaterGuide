@@ -1,10 +1,32 @@
 {
-    "Jamo_S803":[
+    "Enceintes":[
         {
-            "Image": "media/jamo/s803/s803-black.jpg",
-            "Prix": "179.99",
-            "Couleur": "Blanc, Noir",
-            "Type": "Bibliothèque"
+            "Jamo S803":[
+                {
+                    "Image": "media/jamo/s803/s803-black.jpg",
+                    "Prix": "179.99",
+                    "Couleur": "Blanc, Noir",
+                    "Type": "Bibliothèques"
+                }
+            ],
+
+            "Monitor Audio Bronze 50":[
+                {
+                    "Image": "media/monitor-audio/bronze-50/ma_bronze_50_pair_white.jpg",
+                    "Prix": "398",
+                    "Couleur": "Blanc, Noir",
+                    "Type": "Bibliothèques"
+                }
+            ],
+            
+            "Focal Aria 906":[
+                {
+                    "Image": "media/focal/aria/aria-906.jpg",
+                    "Prix": "900",
+                    "Couleur": "Blanc, Noir",
+                    "Type": "Bibliothèques"
+                }
+            ]
         }
     ]
 }
