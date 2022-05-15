@@ -95,35 +95,50 @@
             try
             {
                 /**Vérification de l'affichage de la base de données*/
-                $stmt=$con->prepare($query);
-                $stmt->execute();
-                $stmt->store_result();
-
-                echo '
-                <table id="tableEnceintes">
+                $stmt=$con->query($query);
                 
-                    <tr>
-                        <td>Enceintes</td>
-                        <td>Nom</td>
-                        <td>Prix</td>
-                        <td>Couleur</td>
-                        <td>Type</td>
-                    </tr>';
+                // Si la table n'est pas vide
+                if ($stmt->num_rows > 0) {
 
-                $lignes = $stmt->num_rows;
-
-                for($indice=0; $indice<$lignes; $indice++){
                     echo '
-                    <tr>
-                        <td>.image.</td>
-                        <td>.nom.</td>
-                        <td>.prix.</td>
-                        <td>.couleur.</td>
-                        <td>.type.</td>
-                    </tr>';
+                    <table id="tableEnceintes">
+                    
+                        <tr>
+                            <td>Enceintes</td>
+                            <td>Nom</td>
+                            <td>Prix</td>
+                            <td>Couleur</td>
+                            <td>Type</td>
+                        </tr>';
+
+                    $lignes = $stmt->num_rows;
+
+                    for($indice=0; $indice<$lignes; $indice++){
+                            
+                        // Les données pour chaque ligne
+                        $row = $stmt->fetch_assoc();
+
+                        echo '
+                        <tr>
+                            <td>.image.</td>
+                            <td>'.$row['nom'].'</td>
+                            <td>'.$row['prix'].'</td>
+                            <td>'.$row['couleur'].'</td>
+                            <td>'.$row['type'].'</td>
+                        </tr>';
+
+                    }
+
+                    echo '</table>';
+
+                }
+
+                else {
+                        echo "<p>Aucune enceinte dans la base de données</p>";
+                    
                 }
         
-                echo '</table>';
+                
             }
 
             catch (PDOException $e)

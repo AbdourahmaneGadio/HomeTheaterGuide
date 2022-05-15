@@ -19,37 +19,61 @@
 
 	} // if Vérification formulaire
 
-    echo "console.log($prixMin)";
 	
 	/*Requête SQL pour vérifier dans la BD*/
-	$query = 'SELECT nom from enceintes WHERE prix >= ? AND prix <= ?';
+	$query = 'SELECT * from enceintes WHERE prix > ?';
 
+    try{
 
-
-	/*Exécution de la requête*/
-	$stmt = $con->prepare($query);
-    $stmt->bind_param('ss', $prixMin, $prixMax);
-	$stmt->execute();
-
-    // Stocke le résultat pour qu'on puisse vérifier si l'enceinte correspond
-	$stmt->store_result();
-
-    // Si au moins une enceinte correspond
-    if ($stmt->num_rows > 0) {
-
+        /*Exécution de la requête*/
+        $stmt=$pdo->prepare($query);
+        $stmt->execute([$prixMin]);
         
-        $nombreLignes = mysqli_stmt_num_rows($stmt);
-        
-        header("Location: ../index.php?valide=1&nombreLignes=".$nombreLignes."");
-        exit();
+
+        // Si la table n'est pas vide
+        if ($stmt->rowCount() != 0) {
+
+            echo '
+            <table id="tableEnceintes">
+                        
+                <tr>
+                    <td>Enceintes</td>
+                    <td>Nom</td>
+                    <td>Prix</td>
+                    <td>Couleur</td>
+                    <td>Type</td>
+                </tr>';
+
+            while($row = $stmt->fetch()){
+                                
+
+                echo '
+                <tr>
+                    <td>.image.</td>
+                    <td>'.$row['nom'].'</td>
+                    <td>'.$row['prix'].'</td>
+                    <td>'.$row['couleur'].'</td>
+                    <td>'.$row['type'].'</td>
+                </tr>';
+
+            }
+
+            echo '</table>';
+
+        }
+
+        else {
+                echo "<p>Aucune enceinte correspondante</p>";             
+        }
 
     }
 
-    // Aucune ne correspond
-    else {
-
-        header("Location: ../index.php?valide=0");
-        exit();
+    catch (PDOException $e)
+    {
+    /*Erreur dans la requête */
+    echo 'Query error.';
+    exit();
     }
+ 
 			
 ?>
