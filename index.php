@@ -52,6 +52,7 @@
                         id="selectionPrixMin" 
                         name="selectionPrixMin" 
                         oninput="afficherPrixMin()"
+                        value="0"
                         min="0" 
                         max="600">
 
@@ -62,6 +63,7 @@
                         id="selectionPrixMax" 
                         name="selectionPrixMax" 
                         oninput="afficherPrixMax()"
+                        value="600"
                         min="0" 
                         max="600">
 
@@ -153,6 +155,8 @@
 
 
         </table>
+
+        <br>
 
 
 

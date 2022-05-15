@@ -47,13 +47,13 @@
 			$res = $pdo->prepare($query);
 			$res->execute($values);
 		
-			header("Location: ../index.php?inscription=1");
+			header("Location: adminEnceintes.php?inscription=1");
 			exit();
 		}
 
 		/**Si l'enceinte existe déjà*/
 		else{
-			header("Location: ../index.php?inscription=2");
+			header("Location: adminEnceintes.php?inscription=2");
 			exit();
 		}
 	}
@@ -62,7 +62,7 @@
 	  /*Erreur dans la requête */
 	  echo 'Query error.';
 	  die();
-	  header("Location: ../index.php?inscription=3");
+	  header("Location: adminEnceintes.php?inscription=3");
 	  exit();
 	}
 			
