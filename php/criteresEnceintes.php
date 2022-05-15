@@ -10,6 +10,12 @@
 	/*Prix Max*/
 	$prixMax = $_POST['selectionPrixMax'];
 
+    // Couleur
+    $couleur = $_POST['selectionCouleur'];
+
+    // Type
+    $type = $_POST['selectionType'];
+
 
     // Si le formulaire n'a pas été rempli
 	if ( !isset($prixMin, $prixMax) ) {
@@ -21,13 +27,14 @@
 
 	
 	/*Requête SQL pour vérifier dans la BD*/
-	$query = 'SELECT * from enceintes WHERE prix > ? AND prix < ?';
+	$query = 'SELECT * from enceintes WHERE prix > ? AND prix < ?
+    AND couleur = ? AND type = ?';
 
     try{
 
         /*Exécution de la requête*/
         $stmt=$pdo->prepare($query);
-        $stmt->execute([$prixMin, $prixMax]);
+        $stmt->execute([$prixMin, $prixMax, $couleur, $type]);
         
 
         // Si la table n'est pas vide

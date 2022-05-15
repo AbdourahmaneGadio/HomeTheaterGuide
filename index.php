@@ -74,7 +74,8 @@
                     <!--Couleur-->
                     <td>
 
-                        <select id="selectionCouleur">
+                        <select id="selectionCouleur"
+                        name="selectionCouleur">
 
                             <option>Blanc</option>
                             <option>Noir</option>
@@ -87,7 +88,8 @@
                     <!--Type-->
                     <td>
 
-                        <select id="selectionType">
+                        <select id="selectionType"
+                        name="selectionType">
 
                             <option>Bibliothèques</option>
                             <option>Colonnes</option>
