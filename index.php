@@ -54,7 +54,7 @@
                         oninput="afficherPrixMin()"
                         value="0"
                         min="0" 
-                        max="600">
+                        max="3000">
 
                         <p id="valeurPrixMin">0</p>
 
@@ -63,11 +63,11 @@
                         id="selectionPrixMax" 
                         name="selectionPrixMax" 
                         oninput="afficherPrixMax()"
-                        value="600"
+                        value="3000"
                         min="0" 
-                        max="600">
+                        max="3000">
 
-                        <p id="valeurPrixMax">600</p>
+                        <p id="valeurPrixMax">3000</p>
 
                     </td>
 

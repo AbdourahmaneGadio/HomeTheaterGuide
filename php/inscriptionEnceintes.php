@@ -3,9 +3,14 @@
 	/*Connexion à la base de données*/
 	require 'connexionBD.php';
 
-	
-    /*Nom de l'enceinte*/
-	$nomEnceintes = $_POST['nomEnceintes'];
+	/*Image de l'enceinte*/
+	$imageEnceintes = $_POST['imageEnceintes'];	
+
+    /*Marque de l'enceinte*/
+	$marqueEnceintes = $_POST['marqueEnceintes'];
+
+	/*Modèle de l'enceinte*/
+	$modeleEnceintes = $_POST['modeleEnceintes'];
 	
 	/*Prix de l'enceinte*/
 	$prixEnceintes = $_POST['prixEnceintes'];
@@ -18,16 +23,16 @@
 
 	
 	/*Requête SQL pour insérer dans la BD*/
-	$query = 'INSERT INTO `enceintes`(`nom`, `prix`, `couleur`, `type`) 
-	VALUES (:nomEnceintes, :prixEnceintes, :couleurEnceintes, :typeEnceintes)';
+	$query = 'INSERT INTO `enceintes`(`image`, `marque`, `modele`, `prix`, `couleur`, `type`) 
+	VALUES (:imageEnceintes, :marqueEnceintes, :modeleEnceintes,:prixEnceintes, :couleurEnceintes, :typeEnceintes)';
 	
 	/*Valeurs à remplacer*/
-	$values = [':nomEnceintes' => $nomEnceintes, ':prixEnceintes' => $prixEnceintes, 
+	$values = [':imageEnceintes' => $imageEnceintes, ':marqueEnceintes' => $marqueEnceintes, ':modeleEnceintes' => $modeleEnceintes, ':prixEnceintes' => $prixEnceintes, 
 	':couleurEnceintes' => $couleurEnceintes, ':typeEnceintes' => $typeEnceintes];
 
 	
 	/**Requête pour vérifiez si l'enceinte' existe déjà*/
-	$verif = 'SELECT nom FROM enceintes WHERE nom = ?';
+	$verif = 'SELECT modele FROM enceintes WHERE modele = ?';
 
 
 	/*Exécution de la requête*/
@@ -35,7 +40,7 @@
 	{
 		/**Vérification de l'enceinte dans la base de données*/
 		$verifEnceintes=$con->prepare($verif);
-		$verifEnceintes->bind_param('s', $nomEnceintes);
+		$verifEnceintes->bind_param('s', $modeleEnceintes);
 		$verifEnceintes->execute();
 		$verifEnceintes->store_result();
 

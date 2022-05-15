@@ -21,13 +21,13 @@
 
 	
 	/*Requête SQL pour vérifier dans la BD*/
-	$query = 'SELECT * from enceintes WHERE prix > ?';
+	$query = 'SELECT * from enceintes WHERE prix > ? AND prix < ?';
 
     try{
 
         /*Exécution de la requête*/
         $stmt=$pdo->prepare($query);
-        $stmt->execute([$prixMin]);
+        $stmt->execute([$prixMin, $prixMax]);
         
 
         // Si la table n'est pas vide
@@ -37,7 +37,7 @@
             <table id="tableEnceintes">
                         
                 <tr>
-                    <td>Enceintes</td>
+                    <td>Image</td>
                     <td>Nom</td>
                     <td>Prix</td>
                     <td>Couleur</td>
@@ -49,8 +49,12 @@
 
                 echo '
                 <tr>
-                    <td>.image.</td>
-                    <td>'.$row['nom'].'</td>
+                    <td>
+                        <img src = media/'.$row['marque'].'/'.$row['modele'].'/'.$row['image'].'
+                        alt = Image '.$row['marque'].' '.$row['modele'].'
+                        width = 200 />
+                    </td>
+                    <td>'.$row['marque'].' '.$row['modele'].'</td>
                     <td>'.$row['prix'].'</td>
                     <td>'.$row['couleur'].'</td>
                     <td>'.$row['type'].'</td>

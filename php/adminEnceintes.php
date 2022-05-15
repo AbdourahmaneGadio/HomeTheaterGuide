@@ -23,12 +23,28 @@
 
         <form action="inscriptionEnceintes.php"
             method="post">
+
+            <!--Image Enceintes-->
+            <input type="file"
+            id="imageEnceintes" 
+            name="imageEnceintes" 
+            placeholder="Choisissez l'image"
+            required
+            >
             
-            <!--Nom Enceintes-->
+            <!--Marque Enceintes-->
             <input type="text"
-            id="nomEnceintes" 
-            name="nomEnceintes" 
-            placeholder="Entrer le nom des enceintes"
+            id="marqueEnceintes" 
+            name="marqueEnceintes" 
+            placeholder="Entrer la marque"
+            required
+            >
+
+            <!--Modèle Enceintes-->
+            <input type="text"
+            id="modeleEnceintes" 
+            name="modeleEnceintes" 
+            placeholder="Entrer le modèle"
             required
             >
 
@@ -36,9 +52,9 @@
             <input type="number"
             id="prixEnceintes" 
             name="prixEnceintes" 
-            placeholder="Entrer le prix de la paire d'enceintes"
+            placeholder="Prix"
             min="0"
-            max="600"
+            max="1200"
             required
             >
 
@@ -120,8 +136,12 @@
 
                         echo '
                         <tr>
-                            <td>.image.</td>
-                            <td>'.$row['nom'].'</td>
+                            <td>
+                                <img src = ../media/'.$row['marque'].'/'.$row['modele'].'/'.$row['image'].'
+                                alt = Image 
+                                width = 200 />
+                            </td>
+                            <td>'.$row['marque'].'  '.$row['modele'].'</td>
                             <td>'.$row['prix'].'</td>
                             <td>'.$row['couleur'].'</td>
                             <td>'.$row['type'].'</td>
