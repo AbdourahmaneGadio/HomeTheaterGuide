@@ -117,39 +117,50 @@
                 if ($stmt->num_rows > 0) {
 
                     echo '
-                    <table id="tableEnceintes">
-                    
-                        <tr>
-                            <td>Enceintes</td>
-                            <td>Nom</td>
-                            <td>Prix</td>
-                            <td>Couleur</td>
-                            <td>Type</td>
-                        </tr>';
+                    <form name="formTableEnceintes"
+                    method="post"
+                    action="supprimerEnceintes.php">
 
-                    $lignes = $stmt->num_rows;
+                        <table id="tableEnceintes">
+                        
+                            <tr>
+                                <td>Enceintes</td>
+                                <td>Nom</td>
+                                <td>Prix de la paire</td>
+                                <td>Couleur</td>
+                                <td>Type</td>
+                                <td>Supprimer</td>
+                            </tr>';
 
-                    for($indice=0; $indice<$lignes; $indice++){
-                            
-                        // Les données pour chaque ligne
-                        $row = $stmt->fetch_assoc();
+                        $lignes = $stmt->num_rows;
 
-                        echo '
-                        <tr>
-                            <td>
-                                <img src = ../media/'.$row['marque'].'/'.$row['modele'].'/'.$row['image'].'
-                                alt = Image 
-                                width = 200 />
-                            </td>
-                            <td>'.$row['marque'].'  '.$row['modele'].'</td>
-                            <td>'.$row['prix'].'</td>
-                            <td>'.$row['couleur'].'</td>
-                            <td>'.$row['type'].'</td>
-                        </tr>';
+                        for($indice=0; $indice<$lignes; $indice++){
+                                
+                            // Les données pour chaque ligne
+                            $row = $stmt->fetch_assoc();
+
+                            echo '
+                            <tr>
+                                <td>
+                                    <img src = ../media/'.$row['marque'].'/'.$row['modele'].'/'.$row['image'].'
+                                    alt = Image 
+                                    width = 100 />
+                                </td>
+                                <td><p id = "marqueEnceintes">'.$row['marque'].'</p> <p id = "modeleEnceintes">'.$row['modele'].'</p></td>
+                                <td>'.$row['prix'].'</td>
+                                <td>'.$row['couleur'].'</td>
+                                <td>'.$row['type'].'</td>
+                                <td>
+                                    <input type="submit"
+                                    id="boutonSupprimer'.$indice.'" 
+                                    name="boutonSupprimer'.$indice.'" 
+                                    value="Supprimer" />
+                                </td>
+                            </tr>';
 
                     }
 
-                    echo '</table>';
+                    echo '</table></form>';
 
                 }
 

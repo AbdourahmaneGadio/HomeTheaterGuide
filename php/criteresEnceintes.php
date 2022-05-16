@@ -46,7 +46,7 @@
                 <tr>
                     <td>Image</td>
                     <td>Nom</td>
-                    <td>Prix</td>
+                    <td>Prix de la paire</td>
                     <td>Couleur</td>
                     <td>Type</td>
                 </tr>';
