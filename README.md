@@ -12,6 +12,7 @@ Dans cet exemple, seules les enceintes entre 0 et 3000€, de couleur blanches, 
 
 ## Partie Admin
 En appuyant sur la zone "admin", vous serez renvoyé dans un menu vous permettant d'ajouter, ou de supprimer des enceintes.
+Il vous suffira d'ajouter l'image de l'enceinte téléchargée au préable sur votre ordinateur, et de la sélectionner.
 
 ### Exemple Partie Admin
 
