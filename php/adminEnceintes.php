@@ -63,6 +63,7 @@
             id="couleurEnceintes">
                 <option value="Blanc">Blanc</option>
                 <option value="Noir">Noir</option>
+                <option value="Noyer">Noyer</option>
             </select>
 
             <!--Type Enceintes-->

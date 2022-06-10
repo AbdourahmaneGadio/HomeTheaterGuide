@@ -32,7 +32,12 @@
 
 	
 	/**Requête pour vérifiez si l'enceinte' existe déjà*/
-	$verif = 'SELECT modele FROM enceintes WHERE modele = ?';
+	$verif = 'SELECT image, modele, marque, couleur 
+	FROM enceintes 
+	WHERE image = ?
+	AND modele = ?
+	AND marque = ?
+	AND couleur = ?';
 
 
 	/*Exécution de la requête*/
@@ -40,7 +45,7 @@
 	{
 		/**Vérification de l'enceinte dans la base de données*/
 		$verifEnceintes=$con->prepare($verif);
-		$verifEnceintes->bind_param('s', $modeleEnceintes);
+		$verifEnceintes->bind_param('ssss', $imageEnceintes, $modeleEnceintes, $marqueEnceintes, $couleurEnceintes);
 		$verifEnceintes->execute();
 		$verifEnceintes->store_result();
 

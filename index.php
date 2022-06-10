@@ -51,7 +51,7 @@
                         <input type="range" 
                         id="selectionPrixMin" 
                         name="selectionPrixMin" 
-                        oninput="afficherPrixMin()"
+                        onclick="afficherPrixMin()"
                         value="0"
                         min="0" 
                         max="3000">
