@@ -8,9 +8,8 @@ Ce site vous permet de visualiser plusieurs enceintes, et de les filtrer selon l
 
 Dans cet exemple, seules les enceintes entre 0 et 3000€, de couleur blanches, et de type Bibliothèques seront affichés :
 ### Exemple appliqué
+![Sans titre](https://user-images.githubusercontent.com/91066652/183980155-cb2a727d-1a12-481a-b6aa-ecda042b81dc.GIF)
 
-<img width='500'
-     src='https://user-images.githubusercontent.com/91066652/173096600-5125e2ef-7ba1-4436-848d-e9ab72d4003a.png' />
 
 ## Partie Admin
 En appuyant sur la zone "admin", vous serez renvoyé dans un menu vous permettant d'ajouter, ou de supprimer des enceintes.
